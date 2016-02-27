@@ -37,8 +37,8 @@
           </div>
         </div>
       </div>
-      
-      
+
+
       <div class="row">
         <div class="col-xs-12">
           <div class="row">
@@ -49,7 +49,7 @@
           </div>
         </div>
       </div>
-      
+
 
       <div class="row">
         <div class="col-xs-12">
@@ -122,10 +122,18 @@
 <!-- templates -->
 
 <script type="text/template" id="point-li-tmpl">
-  <li class="row exploracao">
+  <% if (event_type === 'Alerta') {
+        var f = '<small class="label label-danger">';
+        var li_style=' style="background-color: #ffcc66;" ';
+      } else {
+        var f = '<small style="color: grey; font-size: 75%">';
+      }
+  %>
+
+  <li class="row point_item" <%= li_style %>">
     <a class="col-xs-12 pull-left" href="exploracao-show.html?cartodb_id=<%- cartodb_id %>"><%- name %> </a>
     <span class="col-xs-12 ">
-      
+
       <small class="label label-success"><%- estado %></small>
       <small class="label label-default"><%- consumo %></small>
       <small class="label label-info"><%- pagos %></small>
@@ -136,7 +144,7 @@
       }
       %>
       <%= f %><%- event_type %></small>
-          
+
     </span>
   </li>
 </script>
