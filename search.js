@@ -6,7 +6,7 @@ var where = new Backbone.SIXHIARA.Where();
 // var exploracaos = EXPLORACAOS_REPO; // Descomentar para trabajar con fixtures
 
 
-var exploracaos = new Backbone.SIXHIARA.ExploracaoCollection();
+var points = new Backbone.HACKSB.PointCollection();
 
 var domains = new Backbone.UILib.DomainCollection();
 domains.url = '/domains';

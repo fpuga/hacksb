@@ -2,20 +2,20 @@
 <html lang="pt">
 <head>
   <meta charset="utf-8">
-  <title>Procurar explorações</title>
+  <title>Buscar Puntos</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
-  <link rel="stylesheet" href="exploracao-search.css" />
+  <link rel="stylesheet" href="search.css" />
   <link rel="stylesheet" href="base.css" />
 </head>
 <body class="container-fluid">
 
   <menu class="row text-center">
     <a href="#" class="col-xs-1">
-      <strong id="search">PROCURAR</strong>
+      <strong id="search">Buscar</strong>
     </a>
     <a href="exploracao-new.html" class="col-xs-1">
-      <strong id="new">ALTA</strong>
+      <strong id="new">Crear</strong>
     </a>
     <a href="exploracao-gps.html" class="col-xs-1">
       <strong id="gps">GPS</strong>
@@ -103,7 +103,7 @@
 
   <section id="projects" class="col-xs-3">
 
-    <h1 class="text-center">Explorações</h1>
+    <h1 class="text-center">Puntos</h1>
     <br />
 
     <ul id="project_list" class="list-unstyled">
@@ -152,9 +152,6 @@
 <script src="lib/backbone-geojson/Feature.js"></script>
 <script src="lib/backbone-geojson/FeatureCollection.js"></script>
 
-<script src="data/domains.js"></script>
-<script src="data/exploracaos.js"></script>
-
 <script src="models/Where.js"></script>
 <script src="views/MapView.js"></script>
 
@@ -163,10 +160,14 @@
 <script src="models/Licencia.js"></script>
 <script src="models/LicenciaCollection.js"></script>
 <script src="models/Utente.js"></script>
-<script src="models/Exploracao.js"></script>
-<script src="models/ExploracaoCollection.js"></script>
+<script src="models/Point.js"></script>
+<script src="models/PointCollection.js"></script>
 
-<script src="exploracao-search.js"></script>
+<script src="data/domains.js"></script>
+<script src="data/exploracaos.js"></script>
+
+
+<script src="search.js"></script>
 
 </body>
 </html>

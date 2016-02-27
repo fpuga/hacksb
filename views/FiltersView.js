@@ -1,5 +1,5 @@
-Backbone.SIXHIARA = Backbone.SIXHIARA || {};
-Backbone.SIXHIARA.FiltersView = Backbone.UILib.BaseView.extend({
+Backbone.HACKSB = Backbone.HACKSB || {};
+Backbone.HACKSB.FiltersView = Backbone.UILib.BaseView.extend({
 
   initialize: function(options){
     Backbone.UILib.BaseView.prototype.initialize.call(this);

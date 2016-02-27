@@ -1,7 +1,7 @@
-Backbone.SIXHIARA = Backbone.SIXHIARA || {};
-Backbone.SIXHIARA.ExploracaoCollection = Backbone.GeoJson.FeatureCollection.extend({
+Backbone.HACKSB = Backbone.HACKSB || {};
+Backbone.HACKSB.PointCollection = Backbone.GeoJson.FeatureCollection.extend({
 
-    model: Backbone.SIXHIARA.Exploracao,
+    model: Backbone.HACKSB.Point,
     url: '/exploracaos',
 
     filterBy: function(where){
@@ -12,7 +12,7 @@ Backbone.SIXHIARA.ExploracaoCollection = Backbone.GeoJson.FeatureCollection.exte
         }
         return _.isEqual(properties, where);
       });
-      return new Backbone.SIXHIARA.ExploracaoCollection(a);
+      return new Backbone.HACKSB.PointCollection(a);
     }
 
 });

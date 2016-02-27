@@ -1,22 +1,17 @@
-Backbone.SIXHIARA = Backbone.SIXHIARA || {};
-Backbone.SIXHIARA.Exploracao = Backbone.GeoJson.Feature.extend({
+Backbone.HACKSB = Backbone.HACKSB || {};
+Backbone.HACKSB.Point = Backbone.GeoJson.Feature.extend({
 
   urlRoot: '/exploracao',
-  
+ 
   defaults: {
-    'exp_id':     '',
-    'exp_name':   '',
-    'd_solici':   '',
-    'observacio': '',
-    'loc_provin': '',
-    'loc_distri': '',
-    'loc_posto':  '',
-    'loc_nucleo': '',
-    'loc_endere': '',
-    'loc_bacia':  '',
-    'loc_subaci':  '',
-    'loc_rio':    '',
-    'pagos':      false,
+    'cartodb_id':     '',
+    'description':   '',
+    'event_owner':   '',
+    'event_tags': [],
+    'event_time': '',
+    'event_type': '', // AUTO, CUSTOM, ALERT
+    'name':  '',
+    
     'utente':     new Backbone.SIXHIARA.Utente(), // FIXME. No se está rellenando como un modelo si no como obj js
     'licencias':  new Backbone.SIXHIARA.LicenciaCollection(),
     'fontes':     new Backbone.SIXHIARA.FonteCollection(),
@@ -24,9 +19,9 @@ Backbone.SIXHIARA.Exploracao = Backbone.GeoJson.Feature.extend({
 
     'consumo': 'C', // FIXME. Está en las fixtures
     'estado':  'L', // FIXME. Está en las fixtures
-    // 'pagos':   'P', // FIXME. Está en las fixtures. En create tiene que ser un booleano
+    'pagos':   'P', // FIXME. Está en las fixtures
   },
-
+  
   initialize: function(){
     // TODO: take exp_id from url
     var exp_id = window.location.search.split('=')[1];
