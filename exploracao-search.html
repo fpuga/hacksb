@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <title>Procurar explorações</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="exploracao-search.css" />
+  <link rel="stylesheet" href="base.css" />
+</head>
+<body class="container-fluid">
+
+  <menu class="row text-center">
+    <a href="#" class="col-xs-1">
+      <strong id="search">PROCURAR</strong>
+    </a>
+    <a href="exploracao-new.html" class="col-xs-1">
+      <strong id="new">ALTA</strong>
+    </a>
+    <a href="exploracao-gps.html" class="col-xs-1">
+      <strong id="gps">GPS</strong>
+    </a>
+  </menu>
+
+  <main class="main-content row">
+
+    <section id="filters" class="col-xs-3">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <h4 class="col-xs-12">Utentes</h4>
+          </div>
+          <div class="row">
+            <select class="form-control col-xs-6 widget" id="utente">
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <h4 class="col-xs-12">Localização</h4>
+          </div>
+          <div class="row">
+            <label for="loc_provin" class="col-xs-4">Provincia</label>
+            <select class="form-control col-xs-6 widget" id="loc_provin">
+            </select>
+          </div>
+          <div class="row">
+            <label for="loc_distri" class="col-xs-4">Distrito</label>
+            <select class="col-xs-6 form-control widget" id="loc_distri">
+            </select>
+          </div>
+          <div class="row">
+            <label for="loc_posto" class="col-xs-12">Posto administrativo</label>
+            <select class="col-xs-6 form-control widget" id="loc_posto">
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <h4 class="col-xs-12">Licença</h4>
+          </div>
+          <div class="row">
+            <label for="lic_tipo" class="col-xs-4">Tipo</label>
+            <select class="col-xs-6 form-control widget" id="lic_tipo">
+            </select>
+          </div>
+          <div class="row">
+            <label for="estado" class="col-xs-4">Estado</label>
+            <select class="col-xs-6 form-control widget" id="estado">
+            </select>
+          </div>
+          <div class="row">
+            <label for="pagos" class="col-xs-4">Pagamentos</label>
+            <select class="col-xs-6 form-control widget" id="pagos">
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <h4 class="col-xs-12">Actividade</h4>
+          </div>
+          <div class="row">
+            <select class="col-xs-6 form-control widget" id="actividade">
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <section id="projects" class="col-xs-3">
+
+    <h1 class="text-center">Explorações</h1>
+    <br />
+
+    <ul id="project_list" class="list-unstyled">
+    </ul>
+
+  </section>
+
+  <section id="map-container" class="col-xs-6">
+    <div id="map" class="row"></div>
+  </section>
+
+</main>
+
+<!-- templates -->
+
+<script type="text/template" id="exploracao-li-tmpl">
+  <li class="row exploracao">
+    <a class="col-xs-12 pull-left" href="exploracao-show.html?id=<%- id %>"><%- exp_id %> <%- exp_name %></a>
+    <span class="col-xs-12 ">
+      <small class="label label-success"><%- estado %></small>
+      <small class="label label-default"><%- consumo %></small>
+      <small class="label label-danger"><%- pagos %></small>
+      <small style="color: grey; font-size: 75%"><%- utente['nome'] %></small>
+    </span>
+  </li>
+</script>
+
+<!-- javascript -->
+
+<script src="lib/jquery/jquery-1.12.0.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/json2.js"></script>
+<script src="lib/underscore/underscore-min.js"></script>
+<script src="lib/backbone/backbone-min.js"></script>
+
+<script src="lib/backbone-uilib/models/Domain.js"></script>
+<script src="lib/backbone-uilib/models/DomainCollection.js"></script>
+<script src="lib/backbone-uilib/views/OptionView.js"></script>
+<script src="lib/backbone-uilib/views/SelectView.js"></script>
+<script src="lib/backbone-uilib/views/WidgetsView.js"></script>
+<script src="lib/backbone-uilib/views/ItemView.js"></script>
+<script src="lib/backbone-uilib/views/ListView.js"></script>
+<script src="lib/backbone-uilib/views/BaseView.js"></script>
+<script src="views/FiltersView.js"></script>
+<script src="lib/leaflet/leaflet.js"></script>
+<script src="lib/backbone-geojson/Feature.js"></script>
+<script src="lib/backbone-geojson/FeatureCollection.js"></script>
+
+<script src="data/domains.js"></script>
+<script src="data/exploracaos.js"></script>
+
+<script src="models/Where.js"></script>
+<script src="views/MapView.js"></script>
+
+<script src="models/Fonte.js"></script>
+<script src="models/FonteCollection.js"></script>
+<script src="models/Licencia.js"></script>
+<script src="models/LicenciaCollection.js"></script>
+<script src="models/Utente.js"></script>
+<script src="models/Exploracao.js"></script>
+<script src="models/ExploracaoCollection.js"></script>
+
+<script src="exploracao-search.js"></script>
+
+</body>
+</html>
