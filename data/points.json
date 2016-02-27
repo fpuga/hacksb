@@ -1,0 +1,205 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        'description':   'Automático',
+        'event_owner':   'fpuga',
+        'event_tags': [],
+        'event_time': '2016-02-27T09:10:31Z',
+        'event_type': 'Automático', // 'Automáticao', 'Alerta', 'Usuario'
+        'name':  'Automático'
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.408447265625,
+              -12.479487125908548
+            ],
+            [
+              37.94677734374999,
+              -11.845847044118496
+            ],
+            [
+              38.814697265625,
+              -12.12526421833159
+            ],
+            [
+              38.3642578125,
+              -13.004557745339769
+            ],
+            [
+              37.408447265625,
+              -12.479487125908548
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        'description':   'Automático',
+        'event_owner':   'fpuga',
+        'event_tags': [],
+        'event_time': '2016-02-27T10:10:31Z',
+        'event_type': 'Automático', // 'Automáticao', 'Alerta', 'Usuario'
+        'name':  'Automático'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.756875991821289,
+          42.22584798704646
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        'description':   'Automático',
+        'event_owner':   'fpuga',
+        'event_tags': [],
+        'event_time': '2016-02-27T11:10:31Z',
+        'event_type': 'Automático', // 'Automáticao', 'Alerta', 'Usuario'
+        'name':  'Automático'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.775415420532227,
+          42.22807246918665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        'description':   'Automático',
+        'event_owner':   'fpuga',
+        'event_tags': [],
+        'event_time': '2016-02-27T12:10:31Z',
+        'event_type': 'Automático', // 'Automáticao', 'Alerta', 'Usuario'
+        'name':  'Automático'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.798246383666992,
+          42.23086884980937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        'description':   'Automático',
+        'event_owner':   'fpuga',
+        'event_tags': [],
+        'event_time': '2016-02-27T13:10:31Z',
+        'event_type': 'Automático', // 'Automáticao', 'Alerta', 'Usuario'
+        'name':  'Automático'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.840045928955078,
+          42.23322025581026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        'description':   'Automático',
+        'event_owner':   'fpuga',
+        'event_tags': [],
+        'event_time': '2016-02-27T14:10:31Z',
+        'event_type': 'Automático', // 'Automáticao', 'Alerta', 'Usuario'
+        'name':  'Automático'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.875322341918945,
+          42.23773216793775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        'description':   'Automático',
+        'event_owner':   'fpuga',
+        'event_tags': [],
+        'event_time': '2016-02-27T15:10:31Z',
+        'event_type': 'Automático', // 'Automáticao', 'Alerta', 'Usuario'
+        'name':  'Automático'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.89566421508789,
+          42.22031822043341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        'description':   'Automático',
+        'event_owner':   'fpuga',
+        'event_tags': [],
+        'event_time': '2016-02-27T16:10:31Z',
+        'event_type': 'Automático', // 'Automáticao', 'Alerta', 'Usuario'
+        'name':  'Automático'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.861417770385742,
+          42.216631440296354
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        'description':   'Automático',
+        'event_owner':   'fpuga',
+        'event_tags': [],
+        'event_time': '2016-02-27T17:10:31Z',
+        'event_type': 'Automático', // 'Automáticao', 'Alerta', 'Usuario'
+        'name':  'Automático'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.81901741027832,
+          42.21243587693379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        'description':   'Automático',
+        'event_owner':   'fpuga',
+        'event_tags': [],
+        'event_time': '2016-02-27T18:10:31Z',
+        'event_type': 'Automático', // 'Automáticao', 'Alerta', 'Usuario'
+        'name':  'Automático'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.784341812133789,
+          42.21644073891737
+        ]
+      }
+    }
+  ]
+}
