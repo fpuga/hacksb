@@ -9,7 +9,7 @@ Backbone.HACKSB.Point = Backbone.GeoJson.Feature.extend({
     'event_owner':   '',
     'event_tags': [],
     'event_time': '',
-    'event_type': '', // AUTO, CUSTOM, ALERT
+    'event_type': '', // 'Automáticao', 'Alerta', 'Usuario'
     'name':  '',
     
     'utente':     new Backbone.SIXHIARA.Utente(), // FIXME. No se está rellenando como un modelo si no como obj js

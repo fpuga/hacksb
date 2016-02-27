@@ -9,7 +9,7 @@ Backbone.HACKSB.FiltersView = Backbone.UILib.BaseView.extend({
     if(this.options.domains) domains = this.options.domains;
 
     // properties
-    var utentes = domains.byCategory('utente');
+    var event_type = domains.byCategory('event_type');
     var provincias = domains.byCategory('provincia');
     var distritos = domains.byCategory('distrito');
     var postos = domains.byCategory('posto');
@@ -26,8 +26,8 @@ Backbone.HACKSB.FiltersView = Backbone.UILib.BaseView.extend({
 
     // select views
     this.addView(new Backbone.UILib.SelectView({
-      el: this.$('#utente'),
-      collection: utentes
+      el: this.$('#event_type'),
+      collection: event_type
     }));
 
     this.addView(new Backbone.UILib.SelectView({

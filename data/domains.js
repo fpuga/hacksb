@@ -1,8 +1,8 @@
 var DOMAINS_REPO = new Backbone.UILib.DomainCollection([
-  {'category': 'utente', 'text': ''},
-  {'category': 'utente', 'text': 'Anadarco Mozambique'},
-  {'category': 'utente', 'text': 'Municipio de Pemba'},
-  {'category': 'utente', 'text': 'Porto de Pemba'},
+  {'category': 'event_type', 'text': ''},
+  {'category': 'event_type', 'text': 'Automático'},
+  {'category': 'event_type', 'text': 'Alerta'},
+  {'category': 'event_type', 'text': 'Usuario'},
   {'category': 'provincia', 'text': ''},
   {'category': 'provincia', 'text': 'Cabo Delgado'},
   {'category': 'provincia', 'text': 'Niassa'},
