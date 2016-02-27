@@ -2,6 +2,7 @@ Backbone.HACKSB = Backbone.HACKSB || {};
 Backbone.HACKSB.Point = Backbone.GeoJson.Feature.extend({
 
   urlRoot: '/exploracao',
+  idAttribute: 'cartodb_id',
  
   defaults: {
     'cartodb_id':     '',
