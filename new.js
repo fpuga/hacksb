@@ -1,8 +1,4 @@
-$(document).ready(function() {
-  $('#wizard-exp').bootstrapWizard({
-    'withVisible': false
-  });
-});
+
 
 var domains = DOMAINS_REPO;
 
@@ -15,56 +11,6 @@ var domains = DOMAINS_REPO;
     var actividades     = domains.byCategory('actividade');
     // var tiposFonte      = domains.byCategory('tipo-fonte');
 
-    // block localización
-    new Backbone.UILib.SelectView({
-      el: $('#loc_provin'),
-      collection: provincias
-    }).render();
-
-    var selectDistritos = new Backbone.UILib.SelectView({
-      el: $('#loc_distri'),
-      collection: [],
-    }).render();
-    selectDistritos.listenTo(exploracao, 'change:loc_provin', function(model, value, options){
-      this.update(distritos.where({'parent': model.get('loc_provin')}));
-    });
-
-    var selectPostos = new Backbone.UILib.SelectView({
-      el: $('#loc_posto'),
-      collection: [],
-    }).render();
-    selectPostos.listenTo(exploracao, 'change:loc_distri', function(model, value, options){
-      this.update(postos.where({'parent': model.get('loc_distri')}));
-    });
-
-    new Backbone.UILib.SelectView({
-      el: $('#loc_bacia'),
-      collection: bacias
-    }).render();
-
-    var selectSubacias = new Backbone.UILib.SelectView({
-      el: $('#loc_subaci'),
-      collection: [],
-    }).render();
-    selectSubacias.listenTo(exploracao, 'change:loc_bacia', function(model, value, options){
-      this.update(subacias.where({'parent': model.get('loc_bacia')}));
-    });
-
-    // block licencias
-    new Backbone.UILib.SelectView({
-      el: $('.estado-superficial'),
-      collection: estadosLicencia
-    }).render();
-
-    new Backbone.UILib.SelectView({
-      el: $('.estado-subterranea'),
-      collection: estadosLicencia
-    }).render();
-
-    new Backbone.UILib.SelectView({
-      el: $('#actividade'),
-      collection: actividades
-    }).render();
 
 
 var point = new Backbone.HACKSB.Point();
@@ -81,80 +27,48 @@ new Backbone.UILib.WidgetsView({
 }).render();
 
 
-// block utente
-// var utentes = UTENTES_REPO;
-var utentes = new Backbone.SIXHIARA.UtenteCollection();
-utentes.fetch({
-  success: function() {
-    new Backbone.SIXHIARA.SelectUtenteView({
-      el: $('#utente'),
-      model: utentes
-    }).render();
-  }
+
+
+// create a map in the "map" div, set the view to a given place and zoom
+var map = L.map('map').setView([42.24, -8.75], 10);
+
+L.tileLayer('https://api.mapbox.com/v4/mapbox.pirates/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZnB1Z2EiLCJhIjoiRTNkN1h1OCJ9.jfJA6rSdkFVm_AKa3w4vRA', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map)
+
+
+// Initialise the FeatureGroup to store editable layers
+var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+// Initialise the draw control and pass it the FeatureGroup of editable layers
+var drawControl = new L.Control.Draw({
+    edit: {
+        featureGroup: drawnItems
+    },
+    draw: {
+      polyline: false,
+      polygon: false,
+      rectangle: false,
+      circle: false
+    }
+});
+map.addControl(drawControl);
+
+
+map.on('draw:created', function (e) {
+    var type = e.layerType,
+        layer = e.layer;
+
+    if (type === 'marker') {
+        // Do marker specific actions
+    }
+
+    // Do whatever else you need to. (save to db, add to map etc)
+    map.addLayer(layer);
 });
 
-new Backbone.UILib.WidgetsView({
-  el: $('#utente'),
-  model: exploracao.get('utente')
-}).render();
-
-
-
-// TODO: look for a better way to organize this
-new Backbone.UILib.WidgetsView({
-  el: $('#actividade-explotacion'),
-  model: exploracao
-}).render();
-
-
-// block licencias
-
-new Backbone.UILib.WidgetsView({
-  el: $('#licencia-subterranea'),
-  model: licenciaSubterranea
-}).render();
-
-new Backbone.UILib.WidgetsView({
-  el: $('#licencia-superficial'),
-  model: licenciaSuperficial
-}).render();
-
-var tableFontesView = new Backbone.SIXHIARA.TableFontesView({
-  el: $('#fontes'),
-  collection: exploracao.get('fontes')
-}).render();
-tableFontesView.listenTo(exploracao.get('fontes'), 'add', function(model, collection, options){
-  this.update(exploracao.get('fontes'));
+map.locate({
+  setView : true,
+  maxZoom: 11
 });
-tableFontesView.listenTo(exploracao.get('fontes'), 'destroy', function(model, collection, options){
-  this.update(exploracao.get('fontes'));
-});
-
-$('#fonte-subterranea').on('click', function(e){
-  e.preventDefault();
-  $('#fonteSubModal').modal('toggle');
-});
-new Backbone.SIXHIARA.ModalFonteView({
-  el: $('#fonteSupModal'),
-  collection: exploracao.get('fontes')
-});
-
-$('#fonte-superficial').on('click', function(e){
-  e.preventDefault();
-  $('#fonteSupModal').modal('toggle');
-});
-new Backbone.SIXHIARA.ModalFonteView({
-  el: $('#fonteSubModal'),
-  collection: exploracao.get('fontes')
-});
-
-// TODO: convert to domains
-// new Backbone.UILib.SelectView({
-//   el: $('#fonteSubModal #tipo_fonte'),
-//   collection: tiposFonte.byParent('Subterránea')
-// });
-//
-// new Backbone.UILib.SelectView({
-//   el: $('#fonteSupModal #tipo_fonte'),
-//   collection: tiposFonte.byParent('Superficial')
-// });

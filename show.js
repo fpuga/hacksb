@@ -20,13 +20,15 @@ var points = new Backbone.HACKSB.PointCollection();
         model: point
       }).render();
       
-      var base = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-});
+     
 
 
 var pointGeoJson = L.geoJson(point.toGeoJSON());
 
+
+var base = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+});
 
 var map = L.map('map', {
   center: [42.24, -8.75],
@@ -45,7 +47,7 @@ var drawControl = new L.Control.Draw({
   draw: {
     circle: false,
     rectangle: false,
-    marker: false,
+    polygon: false,
     polyline: false
   },
   edit: {
