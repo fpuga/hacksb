@@ -20,7 +20,7 @@ Backbone.SIXHIARA.ButtonSaveView = Backbone.View.extend({
     var lat = mypoint.lat;
     var lon = mypoint.lon;
     
-    var api_key = '';
+    var api_key = '64e8707d60397bcb8666f1c86e165b96bd7a2851';
     var sql = "https://fpuga.cartodb.com/api/v2/sql?q=INSERT INTO hacksb (the_geom, description, username, event_tags, event_type, name) VALUES (ST_GeomFromText('POINT(" + lon + " " + lat + ")', 4326),'" + desc + "', 'fpuga', null, 'Usuario', '" + name + "')&api_key=" + api_key
 
     $.post( sql, function( data ) {

@@ -24,11 +24,28 @@ Backbone.HACKSB.MapView = Backbone.View.extend({
     }
   },
 
+/*
+{
+	pointToLayer: function (feature, latlng) {
+		var marker = getMarker(feature, latlng);
+		markers[feature.array_number] = marker;
+	    return marker;
+	},
+	style: getStyle,
+	onEachFeature: onEachFeature,
+	filter: chartFilter
+}
+*/
   update: function(newCollection){
     this.collection = newCollection;
     this.geoJSONLayer.clearLayers();
     if(this.collection.length > 0){
       this.geoJSONLayer.addData(this.collection.toGeoJSON());
+      this.geoJSONLayer.setStyle( function () {
+      
+        return geojsonDefaultMarkerOptions;
+      
+      });
       this.map.fitBounds(this.geoJSONLayer.getBounds())
       .setMaxBounds(this.geoJSONLayer.getBounds().pad(0.5));
     } else{

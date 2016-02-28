@@ -26,13 +26,13 @@ var points = new Backbone.HACKSB.PointCollection();
 var pointGeoJson = L.geoJson(point.toGeoJSON());
 
 
-var base = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+var base = L.tileLayer('https://api.mapbox.com/v4/mapbox.pirates/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZnB1Z2EiLCJhIjoiRTNkN1h1OCJ9.jfJA6rSdkFVm_AKa3w4vRA', {
   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 });
 
 var map = L.map('map', {
   center: [42.24, -8.75],
-  zoom: 10,
+  zoom: 12,
   layers: [base, pointGeoJson]
 });
 
