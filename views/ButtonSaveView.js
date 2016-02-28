@@ -25,7 +25,7 @@ Backbone.SIXHIARA.ButtonSaveView = Backbone.View.extend({
 
     $.post( sql, function( data ) {
       console.log(data);
-      window.location = 'search.html?username=fpuga';
+      window.location = '/hacksb/search.html?username=fpuga';
     });
     
 

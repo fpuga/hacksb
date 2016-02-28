@@ -1,4 +1,10 @@
 Backbone.HACKSB = Backbone.HACKSB || {};
+
+var markers = {};
+function getMarker(feature, latlng) {
+	return L.circleMarker(latlng, geojsonMarkerOptionsDarkGreen);
+}
+
 Backbone.HACKSB.MapView = Backbone.View.extend({
 
   initialize: function(){
@@ -9,7 +15,14 @@ Backbone.HACKSB.MapView = Backbone.View.extend({
       attribution: '&copy; <a href="http://navionics.com">Navionics</a>'
     });
 
-    this.geoJSONLayer = L.geoJson(this.collection.toGeoJSON());
+    this.geoJSONLayer = L.geoJson(this.collection.toGeoJSON(), {
+      pointToLayer: function (feature, latlng) {
+		var marker = getMarker(feature, latlng);
+		markers[feature.array_number] = marker;
+	    return marker;
+	  },
+	  style: geojsonMarkerOptionsDarkGreen
+    });
     this.map = L.map(this.el.id, {
       center: [42.24, -8.75],
       zoom: 8,
@@ -24,18 +37,6 @@ Backbone.HACKSB.MapView = Backbone.View.extend({
     }
   },
 
-/*
-{
-	pointToLayer: function (feature, latlng) {
-		var marker = getMarker(feature, latlng);
-		markers[feature.array_number] = marker;
-	    return marker;
-	},
-	style: getStyle,
-	onEachFeature: onEachFeature,
-	filter: chartFilter
-}
-*/
   update: function(newCollection){
     this.collection = newCollection;
     this.geoJSONLayer.clearLayers();
@@ -43,7 +44,7 @@ Backbone.HACKSB.MapView = Backbone.View.extend({
       this.geoJSONLayer.addData(this.collection.toGeoJSON());
       this.geoJSONLayer.setStyle( function () {
       
-        return geojsonDefaultMarkerOptions;
+        return geojsonMarkerOptionsDarkGreen;
       
       });
       this.map.fitBounds(this.geoJSONLayer.getBounds())
