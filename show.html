@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <title>Exploração</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"> -->
+  <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="lib/leaflet-draw/dist/leaflet.draw.css" />
+  <link rel="stylesheet" href="show.css" />
+  <link rel="stylesheet" href="base.css" />
+</head>
+<body class="container-fluid">
+  <main>
+
+    <menu class="row text-center">
+      <a href="search.html" class="col-xs-1">
+        <strong id="search">Buscar</strong>
+      </a>
+      <a href="exploracao-new.html" class="col-xs-1">
+        <strong id="new">Crear</strong>
+      </a>
+      <a href="exploracao-gps.html" class="col-xs-1">
+        <strong id="gps">GPS</strong>
+      </a>
+    </menu>
+
+    <section id="intro-section" class="row">
+
+      <div id="info-section" class="col-xs-6">
+
+        <div id="title" class="row">
+          <div class="col-xs-12">
+            <h3>
+              <span class="pull-right">
+                <button type="button" class="btn btn-primary btn-sm">Guardar</button>
+                <button id="delete-button" ftype="button" class="btn btn-default btn-sm">Eliminar</button>
+              </span>
+            </h3>
+          </div>
+        </div>
+
+        <section id="info">
+          <div class="row">
+            <h3 class="col-xs-1"><i class="fa fa-info"></i></h3>
+            <h3 class="col-xs-10"><span class="widget" id="name"></span><small> Editar</small></h3>
+          </div>
+          
+           <div class="row">
+            <div class="col-xs-offset-1 col-xs-12">
+                <span class="widget label label-success" id="estado"></span>
+                <span class="widget label label-default" id="consumo"></span>
+                <span class="widget label label-info" id="pagos"></span>
+            </div>
+          </div>
+          
+          <div class="row">
+            <br>
+            <span class="col-xs-offset-1 col-xs-11 widget" id="description"></span>
+          </div>
+         
+         
+          <div class="row">
+            <h3 class="col-xs-1"><i class="fa fa-map-marker"></i></h3>
+            <h3 class="col-xs-11"><span class="widget" id="loc_country"></span> / <span class="widget" id="loc_city"></span> <small>Editar</small></h3>
+          </div>
+          <div class="row">
+            <span class="col-xs-offset-1 col-xs-11">Lat: <span class="widget" id="loc_lat"></span>
+          </div>
+          <div class="row">
+            <span class="col-xs-offset-1 col-xs-11">Lon: <span class="widget" id="loc_lon"></span>
+          </div>
+
+          <div class="row">
+            <h3 class="col-xs-1"><i class="fa fa-user"></i></h3>
+            <h3 class="col-xs-11"><span class="widget" id="username"></span></h3>
+          </div>
+          
+          <div class="row">
+            <h3 class="col-xs-1"><i class="fa fa-wrench"></i></h3> <!-- fa-tint -->
+            <h3 class="col-xs-10"><span>Información adicional</h3>
+          </div>
+          
+          <div class="row">
+            <div class="row">
+                <span class="col-xs-offset-1 col-xs-11">Temperatura: <span class="widget" id="temperatura"></span></span>
+            </div>
+            <div class="row">
+                <span class="col-xs-offset-1 col-xs-11">Presión: <span class="widget" id="presion"></span></span>
+            </div>
+            <div class="row">
+                <span class="col-xs-offset-1 col-xs-11">Profundidad: <span class="widget" id="profundidad"></span></span>
+            </div>
+          </div>
+          
+          
+        </section>
+
+      </div>
+
+      <div id="map-section" class="col-xs-6">
+        <div class="row">
+          <div id="map" class="col-xs-12"></div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <br>
+</main>
+
+<script src="lib/jquery/jquery-1.12.0.min.js"></script>
+<script src="lib/json2.js"></script>
+<script src="lib/underscore/underscore-min.js"></script>
+<script src="lib/backbone/backbone-min.js"></script>
+
+<script src="lib/backbone-geojson/Feature.js"></script>
+<script src="lib/backbone-geojson/FeatureCollection.js"></script>
+
+<script src="models/Point.js"></script>
+<script src="models/PointCollection.js"></script>
+
+<script src="lib/backbone-uilib/views/WidgetsView.js"></script>
+<script src="views/TableRowShowView.js"></script>
+<script src="views/TableShowView.js"></script>
+<script src="views/ButtonDeleteView.js"></script>
+<script src="show.js"></script>
+
+<script src="lib/leaflet/leaflet.js"></script>
+
+<!-- <script src="libs/leaflet-src.js"></script> -->
+
+<script src="lib/leaflet-draw/src/Leaflet.draw.js"></script>
+
+<script src="lib/leaflet-draw/src/edit/handler/Edit.Poly.js"></script>
+<script src="lib/leaflet-draw/src/edit/handler/Edit.SimpleShape.js"></script>
+<script src="lib/leaflet-draw/src/edit/handler/Edit.Circle.js"></script>
+<script src="lib/leaflet-draw/src/edit/handler/Edit.Rectangle.js"></script>
+
+<script src="lib/leaflet-draw/src/draw/handler/Draw.Feature.js"></script>
+<script src="lib/leaflet-draw/src/draw/handler/Draw.Polyline.js"></script>
+<script src="lib/leaflet-draw/src/draw/handler/Draw.Polygon.js"></script>
+<script src="lib/leaflet-draw/src/draw/handler/Draw.SimpleShape.js"></script>
+<script src="lib/leaflet-draw/src/draw/handler/Draw.Rectangle.js"></script>
+<script src="lib/leaflet-draw/src/draw/handler/Draw.Circle.js"></script>
+<script src="lib/leaflet-draw/src/draw/handler/Draw.Marker.js"></script>
+
+<script src="lib/leaflet-draw/src/ext/LatLngUtil.js"></script>
+<script src="lib/leaflet-draw/src/ext/GeometryUtil.js"></script>
+<script src="lib/leaflet-draw/src/ext/LineUtil.Intersect.js"></script>
+<script src="lib/leaflet-draw/src/ext/Polyline.Intersect.js"></script>
+<script src="lib/leaflet-draw/src/ext/Polygon.Intersect.js"></script>
+
+<script src="lib/leaflet-draw/src/Control.Draw.js"></script>
+<script src="lib/leaflet-draw/src/Tooltip.js"></script>
+<script src="lib/leaflet-draw/src/Toolbar.js"></script>
+
+<script src="lib/leaflet-draw/src/draw/DrawToolbar.js"></script>
+<script src="lib/leaflet-draw/src/edit/EditToolbar.js"></script>
+<script src="lib/leaflet-draw/src/edit/handler/EditToolbar.Edit.js"></script>
+<script src="lib/leaflet-draw/src/edit/handler/EditToolbar.Delete.js"></script>
+
+</body>
+</html>

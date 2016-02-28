@@ -3,7 +3,7 @@ delete from hacksb;
 insert into hacksb 
 (description, event_tags, event_type, name, username, the_geom, event_time) 
 values
-('Automático', null, 'Automático', 'Test 1', 'fpuga', CDB_LatLng(42.22584798704646,-8.756875991821289), '2016-02-27T10:10:31Z');
+('El primer punto del día', null, 'Automático', 'Test 1', 'fpuga', CDB_LatLng(42.22584798704646,-8.756875991821289), '2016-02-27T10:10:31Z');
 
 insert into hacksb 
 (description, event_tags, event_type, name, username, the_geom, event_time) 
@@ -53,6 +53,6 @@ values
 insert into hacksb 
 (description, event_tags, event_type, name, username, the_geom, event_time) 
 values
-('Perdida de conexión con el dispositivo', null, 'Alerta', 'fpuga a pique', 'fpuga', CDB_LatLng(42.24383226857561,-8.777217864990233), '2016-02-25T18:10:31Z');
+('Perdida de conexión con el dispositivo', null, 'Alerta', 'A pique', 'fpuga', CDB_LatLng(42.24383226857561,-8.777217864990233), '2016-02-25T18:10:31Z');
 
 
