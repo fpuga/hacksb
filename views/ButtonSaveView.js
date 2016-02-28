@@ -5,38 +5,29 @@ Backbone.SIXHIARA.ButtonSaveView = Backbone.View.extend({
     "click": "save"
   },
 
+  initialize: function(options){
+     this.map = options.map;
+     this.layer = options.layer;
+     this.mypoint = options.mypoint
+  },
   // render: function(){
   // },
 
   save: function(){
 
-    // FIXME. If Licencia is Emtpy the object should no be serialized
-    var lics = this.model.get('licencias');
-    var long = 0;
-    if (_.isArray(lics)) {
-      long = lics.length
-    } else {
-      long = lics.models.length;
-    }
+    var name = $('#name').val();
+    var desc = $('#description').val();
+    var lat = mypoint.lat;
+    var lon = mypoint.lon;
+    
+    var api_key = '';
+    var sql = "https://fpuga.cartodb.com/api/v2/sql?q=INSERT INTO hacksb (the_geom, description, username, event_tags, event_type, name) VALUES (ST_GeomFromText('POINT(" + lon + " " + lat + ")', 4326),'" + desc + "', 'fpuga', null, 'Usuario', '" + name + "')&api_key=" + api_key
 
-    for (var i = 0; i < long; i++) {
-      if (! lics.at(0).get('lic_nro') ) lics.remove(lics.at(0));
-    }
-
-    if(! this.model.isValid()) {
-        alert(this.model.validationError);
-        return;
-    }
-
-    this.model.save(null, {
-      wait: true,
-      success: function(model, resp, options) {
-        window.location = '/static/utentes-ui/exploracao-show.html?id=' + model.get('id');
-      },
-      error: function(xhr, textStatus, errorThrown) {
-        alert(textStatus.statusText);
-      }
+    $.post( sql, function( data ) {
+      console.log(data);
+      window.location = 'search.html?username=fpuga';
     });
+    
 
   }
 

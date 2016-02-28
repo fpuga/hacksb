@@ -15,19 +15,6 @@ var domains = DOMAINS_REPO;
 
 var point = new Backbone.HACKSB.Point();
 
-new Backbone.SIXHIARA.ButtonSaveView({
-  el: $('#save-button'),
-  model: point
-}).render();
-
-// block info
-new Backbone.UILib.WidgetsView({
-  el: $('#info'),
-  model: point
-}).render();
-
-
-
 
 // create a map in the "map" div, set the view to a given place and zoom
 var map = L.map('map').setView([42.24, -8.75], 10);
@@ -55,7 +42,7 @@ var drawControl = new L.Control.Draw({
 });
 map.addControl(drawControl);
 
-
+var mypoint = {};
 map.on('draw:created', function (e) {
     var type = e.layerType,
         layer = e.layer;
@@ -63,7 +50,8 @@ map.on('draw:created', function (e) {
     if (type === 'marker') {
         // Do marker specific actions
     }
-
+    mypoint.lat = layer._latlng.lat
+    mypoint.lon = layer._latlng.lng
     // Do whatever else you need to. (save to db, add to map etc)
     map.addLayer(layer);
 });
@@ -72,3 +60,22 @@ map.locate({
   setView : true,
   maxZoom: 11
 });
+
+new Backbone.SIXHIARA.ButtonSaveView({
+  el: $('#save-button'),
+  model: point,
+  map: map,
+  layer: drawnItems,
+  mypoint: mypoint
+}).render();
+
+// block info
+new Backbone.UILib.WidgetsView({
+  el: $('#info'),
+  model: point
+}).render();
+
+
+
+
+
