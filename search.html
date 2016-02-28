@@ -14,11 +14,8 @@
     <a href="#" class="col-xs-1">
       <strong id="search">Buscar</strong>
     </a>
-    <a href="exploracao-new.html" class="col-xs-1">
+    <a href="new.html" class="col-xs-1">
       <strong id="new">Crear</strong>
-    </a>
-    <a href="exploracao-gps.html" class="col-xs-1">
-      <strong id="gps">GPS</strong>
     </a>
   </menu>
 
@@ -49,53 +46,32 @@
           </div>
         </div>
       </div>
-
-
+      
       <div class="row">
         <div class="col-xs-12">
-          <div class="row">
-            <h4 class="col-xs-12">Localização</h4>
-          </div>
-          <div class="row">
-            <label for="loc_provin" class="col-xs-4">Provincia</label>
-            <select class="form-control col-xs-6 widget" id="loc_provin">
-            </select>
-          </div>
-          <div class="row">
-            <label for="loc_distri" class="col-xs-4">Distrito</label>
-            <select class="col-xs-6 form-control widget" id="loc_distri">
-            </select>
-          </div>
-          <div class="row">
-            <label for="loc_posto" class="col-xs-12">Posto administrativo</label>
-            <select class="col-xs-6 form-control widget" id="loc_posto">
-            </select>
-          </div>
+        
+        <div class="row">
+            <h4 class="col-xs-12">Cuando</h4>
         </div>
-      </div>
+          
+      <ul id="filter_fecha" class="nav nav-list">
+      <li class="active"><a href="#" data-value="todos">Desde el principio</a></li>
+      <li><a href="#" data-value="estasemana">Esta semana</a></li>
+      <li><a href="#" data-value="semanapasada">Semana pasada</a></li>
+      <li><a href="#" data-value="estemes">Este mes</a></li>
+      <li><a href="#" data-value="mespasado">Mes pasado</a></li>
+      <li><a href="#" data-value="esteanho">Este año</a></li>
+      <li><a href="#" data-value="anhopasado">Año pasado</a></li>
+      <li class="nav-header">Seleccionar fechas:</li>
 
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="row">
-            <h4 class="col-xs-12">Licença</h4>
-          </div>
-          <div class="row">
-            <label for="lic_tipo" class="col-xs-4">Tipo</label>
-            <select class="col-xs-6 form-control widget" id="lic_tipo">
-            </select>
-          </div>
-          <div class="row">
-            <label for="estado" class="col-xs-4">Estado</label>
-            <select class="col-xs-6 form-control widget" id="estado">
-            </select>
-          </div>
-          <div class="row">
-            <label for="pagos" class="col-xs-4">Pagamentos</label>
-            <select class="col-xs-6 form-control widget" id="pagos">
-            </select>
-          </div>
-        </div>
+      <input type="text" class="span6 hidden-print" placeholder="Desde">
+      <input type="text" class="span6 hidden-print" placeholder="Hasta">
+
+      <li class="divider"></li>
+    </ul>
+    </div>
       </div>
+    
 
 
     </div>

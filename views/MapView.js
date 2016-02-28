@@ -1,5 +1,5 @@
-Backbone.SIXHIARA = Backbone.SIXHIARA || {};
-Backbone.SIXHIARA.MapView = Backbone.View.extend({
+Backbone.HACKSB = Backbone.SIXHIARA || {};
+Backbone.HACKSB.MapView = Backbone.View.extend({
 
   initialize: function(){
     var base = L.tileLayer('https://api.mapbox.com/v4/mapbox.pirates/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZnB1Z2EiLCJhIjoiRTNkN1h1OCJ9.jfJA6rSdkFVm_AKa3w4vRA', {

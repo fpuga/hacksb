@@ -1,29 +1,11 @@
 
 
-var where = new Backbone.SIXHIARA.Where();
+var where = new Backbone.HACKSB.Where();
 
-var domains = DOMAINS_REPO; // Descomentar para trabajar con fixtures
-// var exploracaos = EXPLORACAOS_REPO; // Descomentar para trabajar con fixtures
+var domains = DOMAINS_REPO;
 
 
 var points = new Backbone.HACKSB.PointCollection();
-
-/*
-var domains = new Backbone.UILib.DomainCollection();
-domains.url = '/domains';
-
-domains.fetch({
-  success: function(collection, response, options) {
-  
-    new Backbone.SIXHIARA.FiltersView({
-      el: $('#filters'),
-      model: where,
-      domains: domains,
-  }).render();
- 
-  }
-});
-*/
 
 new Backbone.HACKSB.FiltersView({
     el: $('#filters'),
@@ -42,7 +24,7 @@ listView.listenTo(where, 'change', function(model, options){
 });
 
 
-var mapView = new Backbone.SIXHIARA.MapView({
+var mapView = new Backbone.HACKSB.MapView({
   el: $('#map'),
   collection: points
 });

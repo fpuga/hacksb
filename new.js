@@ -4,13 +4,7 @@ $(document).ready(function() {
   });
 });
 
-// var domains = DOMAINS_REPO;
-
-var domains = new Backbone.UILib.DomainCollection();
-domains.url = '/domains';
-
-domains.fetch({
-  success: function(collection, response, options) {
+var domains = DOMAINS_REPO;
 
     var provincias = domains.byCategory('provincia');
     var distritos = domains.byCategory('distrito');
@@ -73,32 +67,17 @@ domains.fetch({
     }).render();
 
 
-  }
-});
-
-
-
-var exploracao = new Backbone.SIXHIARA.Exploracao();
-
-// add skeleton licencias
-var licenciaSubterranea = new Backbone.SIXHIARA.Licencia({
-  'lic_tipo': 'subterranea'
-});
-var licenciaSuperficial = new Backbone.SIXHIARA.Licencia({
-  'lic_tipo': 'superficial'
-});
-exploracao.get('licencias').add(licenciaSuperficial);
-exploracao.get('licencias').add(licenciaSubterranea);
+var point = new Backbone.HACKSB.Point();
 
 new Backbone.SIXHIARA.ButtonSaveView({
   el: $('#save-button'),
-  model: exploracao
+  model: point
 }).render();
 
 // block info
 new Backbone.UILib.WidgetsView({
   el: $('#info'),
-  model: exploracao
+  model: point
 }).render();
 
 

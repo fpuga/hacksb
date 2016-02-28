@@ -1,5 +1,5 @@
-Backbone.SIXHIARA = Backbone.SIXHIARA || {};
-Backbone.SIXHIARA.Where = Backbone.Model.extend({
+Backbone.HACKSB = Backbone.HACKSB || {};
+Backbone.HACKSB.Where = Backbone.Model.extend({
 
   defaults: {
     'cartodb_id':     '',

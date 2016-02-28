@@ -2,10 +2,10 @@
 <html lang="pt">
 <head>
   <meta charset="utf-8">
-  <title>Nova Exploração</title>
+  <title>Nuevo Punto</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="exploracao-new.css" />
+  <link rel="stylesheet" href="new.css" />
   <link rel="stylesheet" href="base.css" />
 </head>
 <body>
@@ -13,14 +13,11 @@
   <div class="container-fluid">
 
     <menu class="row text-center">
-      <a href="exploracao-search.html" class="col-xs-1">
-        <strong id="search">PROCURAR</strong>
+      <a href="search.html" class="col-xs-1">
+        <strong id="search">Buscar</strong>
       </a>
       <a href="#" class="col-xs-1">
-        <strong id="new">ALTA</strong>
-      </a>
-      <a href="exploracao-gps.html" class="col-xs-1">
-        <strong id="gps">GPS</strong>
+        <strong id="new">Crear</strong>
       </a>
     </menu>
 
@@ -29,7 +26,7 @@
       <div class="col-xs-offset-2 col-xs-8">
 
         <div class="row text-center">
-          <h1>Nova Exploracão
+          <h1>Nova Punto
             <button id="save-button" type="button" class="btn btn-primary col-xs-1 pull-right">Criar</button>
           </h1>
           <hr>
@@ -366,7 +363,6 @@
 
 <script src="lib/jquery/jquery-1.12.0.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="lib/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
 
 <script src="lib/json2.js"></script>
 <script src="lib/underscore/underscore-min.js"></script>
@@ -375,24 +371,14 @@
 <script src="lib/backbone-uilib/models/Domain.js"></script>
 <script src="lib/backbone-uilib/models/DomainCollection.js"></script>
 
-<script src="models/Fonte.js"></script>
-<script src="models/FonteCollection.js"></script>
-
-<script src="models/Licencia.js"></script>
-<script src="models/LicenciaCollection.js"></script>
-<script src="models/Utente.js"></script>
-<script src="models/UtenteCollection.js"></script>
-
 <script src="lib/backbone-geojson/Feature.js"></script>
 <script src="lib/backbone-geojson/FeatureCollection.js"></script>
 
 <!-- TODO: remove -->
 <script src="data/domains.js"></script>
-<script src="data/utentes.js"></script>
-<script src="data/exploracaos.js"></script>
 
-<script src="models/Exploracao.js"></script>
-<script src="models/ExploracaoCollection.js"></script>
+<script src="models/Point.js"></script>
+<script src="models/PointCollection.js"></script>
 
 <script src="lib/backbone-uilib/views/OptionView.js"></script>
 <script src="lib/backbone-uilib/views/SelectView.js"></script>
@@ -404,7 +390,7 @@
 <script src="views/RowFonteView.js"></script>
 <script src="views/TableFontesView.js"></script>
 
-<script src="exploracao-new.js"></script>
+<script src="new.js"></script>
 
 </body>
 </html>
